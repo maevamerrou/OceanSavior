@@ -241,46 +241,47 @@ function bottomLinePassage(){
 let gameLevel = gameLevels[0]
 
 
-function increaseGameSpeed(){
-        if (gameTime > 40){
-            gameSpeed = 2.5;
-            gameLevel = gameLevels[4]
-            console.log("120sec")
-        } else if (gameTime > 30){
-            gameSpeed = 2;
-            gameLevel = gameLevels[3]
-            console.log("90sec")
-        } else if (gameTime > 20){
-            gameSpeed = 1.8;
-            gameLevel = gameLevels[2]
-            console.log("60sec")
-        } else if (gameTime > 10){
-            gameSpeed = 1.5;
-            gameLevel = gameLevels[1]
-            console.log("30sec")
-        }
-}
+// function increaseGameSpeed(){
+//         if (gameTime > 40){
+//             gameSpeed = 2.5;
+//             gameLevel = gameLevels[4]
+//             console.log("120sec")
+//         } else if (gameTime > 30){
+//             gameSpeed = 2;
+//             gameLevel = gameLevels[3]
+//             console.log("90sec")
+//         } else if (gameTime > 20){
+//             gameSpeed = 1.8;
+//             gameLevel = gameLevels[2]
+//             console.log("60sec")
+//         } else if (gameTime > 10){
+//             gameSpeed = 1.5;
+//             gameLevel = gameLevels[1]
+//             console.log("30sec")
+//         }
+//     }
+
     
-    // topItems.forEach(function(element){
-    //     if (gameTime > 120){
-    //         // gameSpeed = 2.5;
-    //         // gameLevel = gameLevels[4]
-    //         console.log("120sec")
-    //     } else if (gameTime > 90){
-    //         // gameSpeed = 2;
-    //         // gameLevel = gameLevels[3]
-    //         console.log("90sec")
-    //     } else if (gameTime > 60){
-    //         // gameSpeed = 1.8;
-    //         // gameLevel = gameLevels[2]
-    //         console.log("60sec")
-    //     } else if (gameTime > 30){
-    //         // gameSpeed = 1.5;
-    //         // gameLevel = gameLevels[1]
-    //         console.log("30sec")
-    //     }
-    // }
-    // )
+//     topItems.forEach(function(element){
+//         if (gameTime > 120){
+//             // gameSpeed = 2.5;
+//             // gameLevel = gameLevels[4]
+//             console.log("120sec")
+//         } else if (gameTime > 90){
+//             // gameSpeed = 2;
+//             // gameLevel = gameLevels[3]
+//             console.log("90sec")
+//         } else if (gameTime > 60){
+//             // gameSpeed = 1.8;
+//             // gameLevel = gameLevels[2]
+//             console.log("60sec")
+//         } else if (gameTime > 30){
+//             // gameSpeed = 1.5;
+//             // gameLevel = gameLevels[1]
+//             console.log("30sec")
+//         }
+//     }
+//     )
 
 
 
@@ -381,13 +382,13 @@ function increaseTime(){
 
 
 
-// //TO FINISH
+//TO FINISH
 
-// function bubbleScoreUp (){
-//     let bubbleY = 100
-//     context.drawImage(bubbleScore, 50, bubbleY)
-//     bubbleY-=1;
-// }
+function bubbleScoreUp(){
+    let bubbleY = 500
+    context.drawImage(bubbleScore, 50, bubbleY)
+    bubbleY-= 1;
+}
 
 
 
@@ -420,6 +421,8 @@ function draw(){
     };
     collisionDetectionTopEl();
     collisionDetectionBottomEl();
+    bubbleScoreUp()
+
 };
 
 

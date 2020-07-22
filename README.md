@@ -1,27 +1,22 @@
-# Ocean Savior ... Or Not
+# Ocean Savior
 
 ## Description
 
-Ocean Savior is a game happening underwater, in the ocean, where the player controls the diver character who basically has to clean the ocean. 
-There are different things that come across the diver: trah items (plastic bag, can, bottle) and ocean items (fishes, turtles).
-The diver had to catch the trash items to score points. On the other side, if she touches fishes or turtle, she will lose double the points.
-(In addition, on the bottom of the ocean, there are corals, those are very fragile and if the diver touches them the game will end.)
+Ocean Savior is a game taking place underwater, in the ocean, where the player controls the diver character who basically has to clean the ocean. 
+There are different types of things that come across the diver: trah items (plastic bag, can, bottle) and ocean items (fishes, jellyfish, coral).
+The diver had to catch the trash items to score point but avoid touching the sea elements.
 
-The score will be calculated based on the number of trash items caught, minus the ocean elements touched.
-A trash item bring 1 point while the ocean elements deduct 2 points.
-(If a coral is touched, it'll immediately end the game.)
 
 ## MVP (DOM - CANVAS)
 
-- The game has one diver character (female) on the left of the creen. She can move vertically.
+- The game has one diver character (female) on the left of the creen. She can move horizontally and vertically.
 - Sea and trash elements appear randomly from the right of the screen and move to the left on an horizontal axis.
-(- coral elements randomly appear on the bottom of the screen from the right to the left and have different height. If the diver touches one, the game end.)
-- Scoreboard appear on the top center of the game screen
+- Score, level and time are indicated at the top of the game window
 
 ## Backlog
 
 - Adding deadly corals on the bottom
-- Increasing dificulty (every 10 points speed x 1.5)
+- Increasing dificulty 
 - Adding visual effects:    
     - Buble going up everytime the gamer earns or loses points
     - Adding a wave effect on the canvas

@@ -19,9 +19,8 @@
             <h1 id="title"><a href="index.html"><img src="img/logo.png" alt="logo" id="logoImg"></a></h1>
         </div>
         <nav>
-            <p><a href="index.html">Game</a></p>
-            <p><a href="about.html">About</a></p>
-            
+            <p class="nav-text"><a href="index.html">Game</a></p>
+            <p class="nav-text"><a href="about.html">About</a></p>                   
         </nav>
     </header>
 
@@ -31,17 +30,103 @@
 
 
 
-
     <main id="instructions">
 
-        <h3 id="instructions-title">Instructions</h3>
-        <p id="instructions-text"> In order to clean the ocean from the trash human produce, our character, the diver Melissa, has to catch as many trash elements as possible in her net.
-            Help her to succeed.
-            Naturally, you must avoid to catch fishes and other animals as the sea is their enviroment.
-            On the bottom there is a barrier reef composed of corals, but occasionnaly you will find a tire, if you manage to catch it you will gain bonus points, but if you fail and touch the corals or the sand, you lose!
-
-            Use the click of your mouse to keep Melissa up.
+        <h3 id="instructions-title">What is the game about?</h3>
+        <p id="instructions-text">In this game you will have to control the character Melissa who is a diver who cares a lot about the environment and marine life.
+            Her mission is to clean the ocean from the trash human produce, and therefore catch as many trash elements as possible in her net.
+            
+            Naturally, she will have to avoid catching fishes and other animals as the sea is their habitat.
+            On the bottom of the ocean, there is a barrier reef composed of corals, but sometimes there are tires that need to be taken away.
+            She must not touch the corals as they are very fragile!
         </p>
+
+
+
+        <h3 id="instructions-title">Instructions</h3>
+        <p id="instructions-text"> To control Melissa, you can use the 4 arrows of your keyboard.</p>
+        <img src="img/arrows.png" alt="Keyboard arrows" id="arrows">
+        
+        <div id="trash-el">
+
+            <p>Trash elements to catch:</p>
+            
+            <div id="trash-el-img">
+
+
+                <div id="pic-el">
+                    <img src="img/bag.png" alt="" id="">
+                    <figcaption>+5 pts</figcaption>
+                </div>
+                
+                <div id="pic-el">
+                    <img src="img/bottle.png" alt="" id="">
+                    <figcaption>+5 pts</figcaption>                    
+                </div>
+
+                <div id="pic-el">
+                    <img src="img/can.png" alt="" id="">
+                    <figcaption>+5 pts</figcaption>                 
+                </div>
+
+                <div id="pic-el">
+                    <img src="img/packaging.png" alt="" id="">
+                    <figcaption>+5 pts</figcaption>
+                </div>
+
+                <div id="pic-el">
+                    <img src="img/wheel.png" alt="" id="">
+                    <figcaption>+30 pts</figcaption>
+                </div>
+              
+            </div>
+
+        </div>
+        
+
+        <div id="sea-el">
+
+            <p>Sea elements to avoid:</p>
+
+            <div id="sea-el-img">
+
+                <div id="pic-el"> 
+                    <img src="img/fish1.png" alt="" id="">
+                    <figcaption>-10 pts</figcaption>                   
+                </div>
+
+                <div id="pic-el">  
+                    <img src="img/fish2.png" alt="" id="">
+                    <figcaption>-10 pts</figcaption>                  
+                </div>
+
+                <div id="pic-el">   
+                    <img src="img/jellyfish.png" alt="" id="">
+                    <figcaption>-10 pts</figcaption>                 
+                </div>
+
+                <div id="pic-el"> 
+                    <img src="img/coral-big.png" alt="" id="">
+                    <figcaption>ends the game</figcaption>                   
+                </div>
+
+                <div id="pic-el"> 
+                    <img src="img/coral-small.png" alt="" id="">
+                    <figcaption>ends the game</figcaption>                   
+                </div>
+
+                <div id="pic-el">  
+                    <img src="img/coral3.png" alt="" id="">
+                    <figcaption>ends the game</figcaption>                  
+                </div>
+
+            </div>
+
+        </div>
+        
+
+
+        
         
         <button class="btn" onclick="window.location='game.html'">PLAY</button>
       

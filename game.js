@@ -53,18 +53,6 @@ function newSound(sound, level, looping){
 }
 
 
-function backgroundSound(){
-    bgSound.volume = 0.5;
-    bgSound.play();
-    bgSound.loop = true;
-
-};
-
-function startGameSound(){
-    splashSound.volume = 0.5;
-    splashSound.play();
-    splashSound.loop = false;
-};
 
 // function soundOff(){
 //     bgSound.pause();
@@ -328,11 +316,13 @@ function collisionDetectionTopEl(){
             } else if (seaEl.includes(element.img) === true) {
                 element.img = blankEl[1]
                 score -= 10
+                newSound(pointLoss, 0.7, false)
 
             } else {
                 // bottomLine.splice(element, 1);
                 element.img = blankEl[1]
                 score += 5
+                newSound(point, 1, false)
             }
         }
     }
@@ -356,6 +346,7 @@ function collisionDetectionBottomEl(){
                     // bottomLine.splice(element, 1);
                     element.img = blankEl[0]
                     score += 30
+                    newSound(pointExtra, 1, false)
                 }
             }
         }
@@ -407,11 +398,13 @@ function draw(){
 // this function set an interval which reset every refresh of the page
 // we first clear the screen and then loop the draw function
 
-backgroundSound();
-startGameSound();
-increaseTime();
+
+newSound(splashSound, 0.3, false)
+increaseTime()
+
 intervalId = setInterval(() => {
     clearCanvas()  
+    newSound(bgSound, 0.5, true)
     requestAnimationFrame(draw) // loop the draw function
 }, 20);
 

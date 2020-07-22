@@ -1,0 +1,90 @@
+
+body {
+    font-family: 'Indie Flower', cursive;
+    background-color: white;  
+    margin: 30px; 
+}
+
+#title {
+    font-size: 25px;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#logoImg {
+    width: 180px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 300px;
+    font-size: 25px;
+    color: black;
+
+}
+
+nav p {
+    color: black;
+    outline: none;
+	text-decoration: none;
+}
+
+
+
+.btn {
+    font-size: 30px;
+    color: white;
+    background-color: #E97D7D;
+    border-radius: 20px;
+    border-color: #E97D7D;
+    height: 50px;
+    width: 200px;
+    border-color: white;
+}
+
+#game-over-text {
+    font-size: 35px;
+
+}
+
+ 
+/* #instructions, #about #game-over { */
+
+#instructions, #game-over, #about {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 40px 350px;
+    text-align: justify;
+    font-size: 20px;
+    padding: 60px;
+    border-radius: 70px;
+    background-color:#F0F8FF;
+}    
+
+
+h6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    margin: 10px;
+}

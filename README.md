@@ -1,5 +1,7 @@
 # Ocean Savior
 
+https://maevamerrou.github.io/OceanSavior/
+
 ## Description
 
 Ocean Savior is a game taking place underwater, in the ocean, where the player controls the diver character who basically has to clean the ocean. 
@@ -11,7 +13,7 @@ The diver had to catch the trash items to score point but avoid touching the sea
 
 - The game has one diver character (female) on the left of the creen. She can move horizontally and vertically.
 - Sea and trash elements appear randomly from the right of the screen and move to the left on an horizontal axis.
-- Score, level and time are indicated at the top of the game window
+- Speed and difficulty increase during the game
 
 ## Backlog
 

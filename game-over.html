@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ocean Savior</title>
     <link rel="shortcut icon" href="img/icon1.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-</head>
 
+</head>
 
 
 <body id="body-index">
@@ -33,11 +32,13 @@
 
 
     <main id="game-over">
-
-        <p id="game-over-text">Oh no, you lost! But you can still try again!</p>
-
-
+        <section>
+            <p id="game-over-text">Oh no, you lost!</p>
+            <p id="score-text"></p>
+            <p>But you can still try again!</p>            
+        </section>
         
+
 
 
         <button class="btn" onclick="window.location='index.html'">INSTRUCTIONS</button>
@@ -47,12 +48,12 @@
 
     </main>
     
+
+    
+    <footer><span id="footer-text">Made with <img src="img/heart.png" alt="heart image" id="heart-img"> by Maëva Merrou</span></footer>
+
     <script src="game-over.js"></script>
 
-
-
-
-    <footer><h6 id="footer-text">Made by Maëva Merrou</h6></footer>
-
 </body>
+
 </html>

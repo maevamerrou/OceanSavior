@@ -9,6 +9,7 @@ function newSound(sound, level, looping){
     sound.loop = looping;
 }
 
+document.getElementById("score-text").innerHTML = `Your score is ${window.localStorage.getItem('Score')}.`
 
 
 

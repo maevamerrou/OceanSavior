@@ -17,9 +17,11 @@ canvas.height = 610;
 
 canvas.style.border = '4px solid #E97D7D';
 
+
 let intervalId = 0;
-var score = 0;
 let gameTime = 0;
+window.score = 0;
+
 
 
 
@@ -29,11 +31,15 @@ lengthScoreRec = 350
 
 function scoreDisplay(){
     context.fillStyle = "#E97D7D"
-    context.fillRect(canvas.width /2 - lengthScoreRec/2, 0,lengthScoreRec,30); // Score frame
+    context.fillRect(canvas.width /2 - lengthScoreRec/2, 0,lengthScoreRec,25); // Score frame
     context.fillStyle = "black"; 
-    context.font = '13px Verdana black'
+    context.font = '19px calibri'
     context.textAlign = "center";
-    context.fillText(`Score: ${score} - Time: ${gameTime} - Level: ${gameLevel}`,canvas.width /2,20)   // Score text (add later ${scoreVariable})
+    context.fillText(`Score: ${score} - Time: ${gameTime} - Level: ${gameLevel}`,canvas.width /2,16);   // Score text (add later ${scoreVariable})
+    context.shadowOffsetX = 0;
+    context.shadowOffsetY = 0;
+    context.shadowColor = "#165A92";
+    context.shadowBlur = 5;
 }
 
 
@@ -48,6 +54,7 @@ let pointExtra = new Audio("sound/pointExtra.mp3");
 let pointLoss = new Audio("sound/pointLoss.mp3");
 
 
+
 function newSound(sound, level, looping){
     sound.volume = level;
     sound.play();
@@ -55,9 +62,25 @@ function newSound(sound, level, looping){
 }
 
 
-// function soundOff(){
-//     bgSound.pause();
-// };
+function soundOff(sound){
+    sound.pause();
+};
+
+
+
+let soundOffgame = document.getElementById("soundOFFLogo");
+let soundOngame = document.getElementById("soundONLogo");
+
+
+soundOffgame.addEventListener("click", function(){
+    bgSound.pause();
+    splashSound.pause();
+})
+
+
+soundOngame.addEventListener("click", function(){
+    bgSound.play();    
+})
 
 
 
@@ -109,8 +132,8 @@ blankBottomEl.src = 'img/blankBottomEl.png';
 let blankTopEl = new Image();
 blankTopEl.src = 'img/blankTopEl.png';
 
-let bubbleScore = new Image();
-bubbleScore.src = 'img/bubbleScore.png';
+let bubbleImg = new Image();
+bubbleImg.src = 'img/bubbleImg.png';
 
 
 // --------- ELEMENTS, GAME LINES VARIABLES ---------
@@ -122,14 +145,13 @@ let topMargin = 50;
 let lineHeight = 90;
 
 let seaEl = [fish1, fish2, jellyfish];
-let trashEl = [bag, bottle, can, packaging, bag, bottle];
+let trashEl = [bag, bottle, can, packaging, bag, bottle, can, packaging];
 let bottomTrash = [wheel]; 
 let bottomSea = [coral1, coral2, coral3]
 let bottomEl = [wheel, coral1, coral1, coral1, coral2, coral2, coral3, coral3, coral3];
-let topEl = [fish1, fish2, jellyfish, bag, bottle, can, packaging]; // all items in the middle of the screen
-let blankEl = [blankBottomEl, blankTopEl];
+let topEl = [fish1, fish2, jellyfish, bag, bottle, can, packaging]; // all items in the 5 lines on the top section
 
-let gameLevels = ["Beginner", "Skilled", "Master", "Professional", "Elite"]
+let levels = ["Beginner", "Skilled", "Master", "Professional", "Elite"];
 
 
 
@@ -149,7 +171,7 @@ let topLines = [
 document.addEventListener('keydown', e => {
                 switch (e.keyCode) {
                     case 38: 
-                    if (diverY > 20){
+                    if (diverY > 40){
                           diverY-= 20;
                         };
                         break;
@@ -198,21 +220,22 @@ let gameSpeed = 1
 
 // Random passage for elements on the top (5 rows)
 
-let topItems = [{img: topEl[Math.floor(Math.random()*topEl.length)], x: canvas.width- 20 , y: topLines[Math.floor(Math.random()*topLines.length)].y}]
+let topItems = [{img: topEl[Math.floor(Math.random()*topEl.length)], x: canvas.width , y: topLines[Math.floor(Math.random()*topLines.length)].y}]
 
 function topLinesPassage(){
     for (let i=0; i< topItems.length; i++){
         context.drawImage(topItems[i].img, topItems[i].x, topItems[i].y);
         topItems[i].x -= gameSpeed
-        if (topItems[i].x == (canvas.width - (diverImg.width-30))){
+        if (topItems[i].x == (canvas.width - (diverImg.width - 30))){
             topItems.push({
                 img: topEl[Math.floor(Math.random()*topEl.length)],
-                x: canvas.width -20,
+                x: canvas.width,
                 y: topLines[Math.floor(Math.random()*topLines.length)].y
             })
         }
     }
 }
+
 
 
 
@@ -227,8 +250,8 @@ function bottomLinePassage(){
         if (bottomLine[i].x == (canvas.width - (diverImg.width + 90))){
             bottomLine.push({
                 img: bottomEl[Math.floor(Math.random()*bottomEl.length)],
-                x: canvas.width -20,
-                y: canvas.height - 100
+                x: canvas.width,
+                y: canvas.height - 95
             })
         }
     }
@@ -236,57 +259,32 @@ function bottomLinePassage(){
 
 
 
+
 // function increase game speed
 
-let gameLevel = gameLevels[0]
+let gameLevel = levels[0]
 
-
-// function increaseGameSpeed(){
-//         if (gameTime > 40){
-//             gameSpeed = 2.5;
-//             gameLevel = gameLevels[4]
-//             console.log("120sec")
-//         } else if (gameTime > 30){
-//             gameSpeed = 2;
-//             gameLevel = gameLevels[3]
-//             console.log("90sec")
-//         } else if (gameTime > 20){
-//             gameSpeed = 1.8;
-//             gameLevel = gameLevels[2]
-//             console.log("60sec")
-//         } else if (gameTime > 10){
-//             gameSpeed = 1.5;
-//             gameLevel = gameLevels[1]
-//             console.log("30sec")
-//         }
-//     }
-
-    
-//     topItems.forEach(function(element){
-//         if (gameTime > 120){
-//             // gameSpeed = 2.5;
-//             // gameLevel = gameLevels[4]
-//             console.log("120sec")
-//         } else if (gameTime > 90){
-//             // gameSpeed = 2;
-//             // gameLevel = gameLevels[3]
-//             console.log("90sec")
-//         } else if (gameTime > 60){
-//             // gameSpeed = 1.8;
-//             // gameLevel = gameLevels[2]
-//             console.log("60sec")
-//         } else if (gameTime > 30){
-//             // gameSpeed = 1.5;
-//             // gameLevel = gameLevels[1]
-//             console.log("30sec")
-//         }
-//     }
-//     )
-
+function increaseGameSpeed(){
+        if (gameTime > 10){
+            gameSpeed = 2;
+            gameLevel = levels[4]
+        } else if (gameTime > 30){
+            gameSpeed = 2;
+            gameLevel = levels[3]
+        } else if (gameTime > 20){
+            gameSpeed = 1.8;
+            gameLevel = levels[2]
+        } else if (gameTime > 10){
+            gameSpeed = 1.5;
+            gameLevel = levels[1]
+        }
+    }
 
 
 
 // --------- COLLISION DETECTION FUNCTIONS ---------
+
+let points = 0;
 
 
 function collissionElements(element) {
@@ -310,7 +308,7 @@ function collissionElements(element) {
 
     // collision check
     if ((crossLeft || crossRight) && (crossTop || crossBottom)) {
-      return true;
+        return true;
     }
     return false;
   }
@@ -323,18 +321,19 @@ function collisionDetectionTopEl(){
 
     topItems.forEach(function(element){
         if (collissionElements(element)){
-            if (blankEl.includes(element.img) === true){
-
-            } else if (seaEl.includes(element.img) === true) {
-                element.img = blankEl[1]
-                score -= 10
-                newSound(pointLoss, 0.7, false)
-
+            if (seaEl.includes(element.img)) {
+                points = -10;
+                score += points;
+                newSound(pointLoss, 0.7, false);
+                createBubble(element, points);
+                element.y = 800;
             } else {
-                // bottomLine.splice(element, 1);
-                element.img = blankEl[1]
-                score += 5
-                newSound(point, 1, false) 
+                points = 5;
+                score += points;
+                newSound(point, 1, false);
+                createBubble(element, points);
+                element.y = 800;
+
             }
         }
     }
@@ -348,17 +347,15 @@ function collisionDetectionBottomEl(){
 
         bottomLine.forEach(function(element){
             if (collissionElements(element)){
-                if (blankEl.includes(element.img) === true){
-
-                } else if (bottomSea.includes(element.img) === true) {
-                    element.img = blankEl[0]
-                    gameOver()
+                if (bottomSea.includes(element.img) === true) {
+                    gameOver();
 
                 } else {
-                    // bottomLine.splice(element, 1);
-                    element.img = blankEl[0]
-                    score += 30
-                    newSound(pointExtra, 1, false)
+                    points = 30;
+                    score += points;
+                    createBubble(element, points);
+                    newSound(pointExtra, 1, false);
+                    element.y = 800;
                 }
             }
         }
@@ -371,7 +368,45 @@ function collisionDetectionBottomEl(){
 // --------- GAME FUNCTIONS ---------
 
 
-// function to count seconds and increase the gameTime variable
+
+// create a bubble in the array bubble if collision
+
+let bubbles = []
+
+function createBubble(element, points){
+    bubbles.push({
+        x: diverX + diverImg.width - 45,
+        y: diverY + 25,
+        points
+    })
+}
+
+
+
+
+
+// draw bubble on the canvas
+
+
+function drawBubbles(){
+    for(let i=0; i< bubbles.length; i++){
+        context.drawImage(bubbleImg, bubbles[i].x, bubbles[i].y - bubbleImg.height);
+        if (points < 0){
+            context.fillStyle = "red"; 
+            context.font = "15px comic sans ms";
+            context.fillText(`${ bubbles[i].points}`, bubbles[i].x + 26, bubbles[i].y - 78);
+        } else if (points > 0){
+            context.fillStyle = "black"; 
+            context.font = "15px comic sans ms";
+            context.fillText(`+${ bubbles[i].points}`, bubbles[i].x + 26, bubbles[i].y - 78);
+        }
+
+        bubbles[i].y--
+    }  
+}
+
+
+// function to increment the gameTime variable (1 sec/sec)
 
 function increaseTime(){
     setInterval(() => {
@@ -382,17 +417,6 @@ function increaseTime(){
 
 
 
-//TO FINISH
-
-function bubbleScoreUp(){
-    let bubbleY = 500
-    context.drawImage(bubbleScore, 50, bubbleY)
-    bubbleY-= 1;
-}
-
-
-
-
 // function to clear the canvas to generate animation (no shadowing of each element)
 function clearCanvas() {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -400,45 +424,42 @@ function clearCanvas() {
 
 
 
-//Function to end game and reser interval ID
+//Function to end game
 function gameOver(){
-    canvas.remove();
-    clearInterval(intervalId);
+    window.localStorage.setItem('Score',window.score)
     location.href = "game-over.html";
 };
 
 
 
 function draw(){
-    newSound(bgSound, 0.4, true)
     context.drawImage(bgImg, 0, 0);
     context.drawImage(diverImg, diverX, diverY);
+
+    drawBubbles();
     scoreDisplay();
+
     topLinesPassage();
     bottomLinePassage();
     if (score < 0){
+        score = 0
         gameOver()
     };
+    
     collisionDetectionTopEl();
     collisionDetectionBottomEl();
-    bubbleScoreUp()
-
+    
+    // increaseGameSpeed()
+    
 };
 
 
 
-
-
-// --------- FINAL SET INTERVAL FUNCTION ---------
-
-// this function set an interval which reset every refresh of the page
-// we first clear the screen and then loop the draw function
-
-
+newSound(bgSound, 0.4, true)
 newSound(splashSound, 0.4, false)
 increaseTime()
 
-intervalId = setInterval(() => {
+intervalId = setInterval(() => { // set an interval which reset everytime page refreshes. First clear the screen and then loop over the draw function.
     clearCanvas()  
     requestAnimationFrame(draw) // loop the draw function
 }, 10);

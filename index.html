@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ocean Savior</title>
     <link rel="shortcut icon" href="img/icon1.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+
 </head>
 
 
 
 <body id="body-index">
 
+    
     <header>
         <div>
             <h1 id="title"><a href="index.html"><img src="img/logo.png" alt="logo" id="logoImg"></a></h1>
         </div>
         <nav>
             <p class="nav-text"><a href="index.html">Game</a></p>
-            <p class="nav-text"><a href="about.html">About</a></p>                   
+            <p class="nav-text"><a href="about.html">About</a></p>                  
         </nav>
     </header>
 
@@ -28,16 +29,22 @@
     <!-- /!\ Upper part must be identical for all pages /!\ -->
 
 
+     
+
+
+    <img src="img/soundOff.png" alt="sound OFF logo" id="soundOFFLogo">
+    <img src="img/soundON.png" alt="sound ON logo" id="soundONLogo">
+
 
 
     <main id="instructions">
 
         <h3 id="game-story-title">What is the game about?</h3>
         <p id="game-story-text">In this game you will have to control the character Melissa who is a diver who cares a lot about the environment and marine life.
-            Her mission is to clean the ocean from the trash human produce, and therefore catch as many trash elements as possible in her net.
-            Naturally, she will have to avoid catching fishes and other animals as the sea is their habitat.
-            On the bottom of the ocean, there is a barrier reef composed of corals, but sometimes there are tires that need to be taken away.
-            She must not touch the corals as they are very fragile!
+            <br>Her mission is to clean the ocean from the trash human produce, and therefore catch as many trash elements as possible in her net.
+            <br>Naturally, she will have to avoid catching fishes and other animals as the sea is their habitat.
+            <br>On the bottom of the ocean, there is a barrier reef composed of corals, but sometimes there are tires that need to be taken away.
+            <br>She must not touch the corals as they are very fragile!
         </p>
 
 
@@ -128,17 +135,17 @@
             
         </div>
 
+        <!-- onclick=newSound(indexSound, 0.8, true) -->
         
-        
-        <button class="btn" onclick="window.location='game.html'">PLAY</button>
+        <button class="btn" onclick="window.location='game.html'" id="play-btn">PLAY</button>
       
     </main>
     
+
+
+    <footer><span id="footer-text">Made with <img src="img/heart.png" alt="heart image" id="heart-img"> by Maëva Merrou</span></footer>
+
     <script src="index.js"></script>
-
-
-
-    <footer><h6 id="footer-text">Made by Maëva Merrou</h6></footer>
 
 </body>
 

@@ -225,6 +225,7 @@ function topLinesPassage(){
         context.drawImage(topItems[i].img, topItems[i].x, topItems[i].y);
         topItems[i].x -= gameSpeed
         if (topItems[i].x == (canvas.width - (diverImg.width - 30))){
+        //    if (topItems[i].x <= 997 && topItems[i].x >= 994.5){
             topItems.push({
                 img: topEl[Math.floor(Math.random()*topEl.length)],
                 x: canvas.width,
@@ -246,6 +247,8 @@ function bottomLinePassage(){
         context.drawImage(bottomLine[i].img, bottomLine[i].x, bottomLine[i].y);
         bottomLine[i].x -= gameSpeed
         if (bottomLine[i].x == (canvas.width - (diverImg.width + 90))){
+        // if (topItems[i].x <= 877 && topItems[i].x >= 874.5){
+
             bottomLine.push({
                 img: bottomEl[Math.floor(Math.random()*bottomEl.length)],
                 x: canvas.width,
@@ -258,18 +261,14 @@ function bottomLinePassage(){
 
 
 
-
-
 // Rafael de Lazaro  22 hours ago
 // try to make one of those a >= or <=
 
 
-// x == 100, try setting it for when x>100 and x<100+(extra speed value)
+// x == 100, try setting it for when x >= 100 and x <= 100+(extra speed value)
 
 
-        // if (topItems[i].x <= (canvas.width - (diverImg.width - 30)) && topItems[i].x >= (canvas.width - (diverImg.width - 30)) - 2){
 
-        // if (topItems[i].x <= (canvas.width - (diverImg.width + 90)) && topItems[i].x >= (canvas.width - (diverImg.width + 90)) - 2){
 
 
 
@@ -282,7 +281,7 @@ let gameLevel = levels[0]
 
 function increaseGameSpeed(){
         if (gameTime > 10){
-            gameSpeed = 2;
+            gameSpeed = 2.5;
             gameLevel = levels[4]
         } else if (gameTime > 30){
             gameSpeed = 2;

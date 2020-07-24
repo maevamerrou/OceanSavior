@@ -134,7 +134,7 @@ figcaption {
 }
 
 footer {
-    position: relative;
+    position: fixed;
     bottom: 25px;
     align-self: center;
     font-size: 20px;
@@ -159,4 +159,15 @@ footer {
 #heart-img {
     width: 17px;
 
+}
+
+
+
+#github {
+    width: 35px;
+}
+
+
+#linkedin {
+    width: 35px;;
 }

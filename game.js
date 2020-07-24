@@ -258,6 +258,24 @@ function bottomLinePassage(){
 
 
 
+
+
+// Rafael de Lazaro  22 hours ago
+// try to make one of those a >= or <=
+
+
+// x == 100, try setting it for when x>100 and x<100+(extra speed value)
+
+
+        // if (topItems[i].x <= (canvas.width - (diverImg.width - 30)) && topItems[i].x >= (canvas.width - (diverImg.width - 30)) - 2){
+
+        // if (topItems[i].x <= (canvas.width - (diverImg.width + 90)) && topItems[i].x >= (canvas.width - (diverImg.width + 90)) - 2){
+
+
+
+
+
+
 // function increase game speed
 
 let gameLevel = levels[0]

@@ -23,8 +23,6 @@ let gameTime = 0;
 window.score = 0;
 
 
-
-
 // --------- SCORE ---------
 
 lengthScoreRec = 350
